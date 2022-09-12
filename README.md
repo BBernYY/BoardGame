@@ -1,2 +1,2 @@
-# Bordspel
+# Boardgame
 WIP
