@@ -1,0 +1,14 @@
+# Boardgame
+- random board
+- - board disctionary (json file)
+- - generate board
+- - - amount of steps
+- - - how many special fields
+- - - pseudo-random boards (incorporate seed)
+- - - field types
+- 
+- visualize board
+- play on a board
+- - multiple player handling
+- - - save data (cash, location, character)
+- - - random rolls
