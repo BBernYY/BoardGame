@@ -10,5 +10,5 @@
 - visualize board
 - play on a board
 - - multiple player handling
-- - - save data (cash, location, character)
+- - - save data (location, character)
 - - - random rolls
