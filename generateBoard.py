@@ -2,7 +2,7 @@ from gc import freeze
 from itertools import count
 
 
-def determine_effects(intensity, randomseed, id, move_chance=0.5):
+def determine_effects(intensity, randomseed, id, move_chance=0.8):
     from random import seed, random
     seed(randomseed)
     if random() < intensity:
@@ -27,14 +27,14 @@ def determine_effects(intensity, randomseed, id, move_chance=0.5):
         }
 
 
-def generate_board(count_squares, intensity, randomseed):
+def generate_board(count_squares, intensity, randomseed, move_chance=0.8):
     squares = [{"id": 0, "move_steps": 0, "freeze_turns": 0}]
     from random import seed, random
     generationseed = seed(randomseed)
     for id in range(count_squares):
         random()
         square = {"id": id}
-        square.update(determine_effects(intensity, generationseed, id))
+        square.update(determine_effects(intensity, generationseed, id, move_chance))
         squares.append(square)
     return(squares)
 
