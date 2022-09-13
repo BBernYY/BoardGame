@@ -1,6 +1,3 @@
-from itertools import count
-
-
 def determine_effects(intensity, randomseed, id, move_chance=0.8):
     from random import seed, random
     seed(randomseed)
