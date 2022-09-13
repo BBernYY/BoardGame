@@ -1,6 +1,6 @@
 # Boardgame
 - random board
-- - board disctionary (json file)
+- - board dictionary (json file)
 - - generate board
 - - - amount of steps
 - - - how many special fields
