@@ -1,5 +1,5 @@
 # Boardgame
-- random board
+- random board 🗸
 - - board dictionary (json file)
 - - generate board
 - - - amount of steps
