@@ -43,6 +43,6 @@ def main(board, characters, rollseed, rollsize=6): # Initial loop
 if __name__ == '__main__': # checks if the code is ran as a file
     import json
     from generateBoard import generate_board
-    for i in range(100):
-        print(generate_board(i+50, i*0.01, i), ['barry', 'harry'], i*2)
+    for i in range(100000):
+        main(generate_board(100, 0.25, i), ['barry', 'harry'], i*2)
     main(json.load(open('boards\\helloworld.json', 'r')), ['barry', 'harry'], 382) # starts the main function

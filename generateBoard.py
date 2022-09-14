@@ -29,6 +29,7 @@ def generate_board(count_squares, intensity, randomseed, move_chance=0.8):
         square = {"id": id}
         square.update(determine_effects(intensity, generationseed, id, count_squares, move_chance))
         squares.append(square)
+    squares[-1] = {'id': len(squares) - 1, 'move_steps': 0, 'freeze_turns': 0}
     return(squares)
 
 if __name__ == "__main__":
