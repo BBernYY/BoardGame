@@ -1,4 +1,4 @@
 # To-Do
 
-* create a template json file that can store a board 🗸
-* write a function to randomly generate a board 🗸
+* Write a gameloop to interperet any board.
+* Make this work for any amount of players.
