@@ -3,11 +3,11 @@ def determine_effects(intensity, randomseed, id, squares, move_chance=0.8):
     seed(randomseed)
     if random() < intensity and id != 0:
         if random() < move_chance:
-            value = int((random()-0.5)*int(intensity*random()*200))
+            value = int((random()-0.5)*int(intensity*random())*200)
             value = value if value != 0 else 1
             value = value if -value < id else id
             return {
-                "move_steps": value if value < squares - id else id - 1,
+                "move_steps": value if value < squares - id else 0,
                 "freeze_turns": 0
             }
         else:
@@ -36,4 +36,4 @@ def generate_board(count_squares, intensity, randomseed, move_chance=0.8):
 
 if __name__ == "__main__":
     from json import dump
-    dump(generate_board(100, 1.0, 8938728339), open("boards\\helloworld.json", "w"), indent=2)
+    dump(generate_board(25, 0.25, 888), open("boards\\helloworld.json", "w"), indent=2)
