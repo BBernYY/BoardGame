@@ -1,12 +1,13 @@
-def determine_effects(intensity, randomseed, id, move_chance=0.8):
+def determine_effects(intensity, randomseed, id, squares, move_chance=0.8):
     from random import seed, random
     seed(randomseed)
     if random() < intensity and id != 0:
         if random() < move_chance:
             value = int((random()-0.5)*int(intensity*random()*200))
             value = value if value != 0 else 1
+            value = value if -value < id else id
             return {
-                "move_steps": value if -value < id else id,
+                "move_steps": value if value < squares - id else id - 1,
                 "freeze_turns": 0
             }
         else:
