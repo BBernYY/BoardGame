@@ -44,5 +44,6 @@ if __name__ == '__main__': # checks if the code is ran as a file
     import json
     from generateBoard import generate_board
     for i in range(100000):
+        if i % 100 == 0:
+            print(i)
         main(generate_board(100, 0.25, i), ['barry', 'harry'], i*2)
-    main(json.load(open('boards\\helloworld.json', 'r')), ['barry', 'harry'], 382) # starts the main function
