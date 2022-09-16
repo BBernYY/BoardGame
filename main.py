@@ -7,8 +7,11 @@ def create_characters(users):
             'freeze': 0
         })
     return result
+def choose_dice(dice):
+    from random import choice
+    return choice(dice)
 def main(board, characters, rollseed, dice): # Initial loop
-    from random import random, seed
+    from random import seed, choice
     characters = create_characters(characters)
     is_looping = True
     seed(rollseed)
@@ -18,14 +21,14 @@ def main(board, characters, rollseed, dice): # Initial loop
             if i['freeze'] > 0:
                 i['freeze'] = i['freeze'] - 1
             else:
-                roll = int((random()*rollsize-1) + 1) # random dice roll
+                roll = choice(choose_dice(dice)) # random dice roll
+                if i['square'] == len(board) - 1:
+                    is_looping = False
+                    winner = i['name']
                 try:
                     steps = roll + board[i['square']+roll]['move_steps']
                 except IndexError:
                     i['square'] = (len(board) - (len(board) + 1 - i['square']))
-                if i['square'] == len(board) - 1:
-                    is_looping = False
-                    winner = i['name']
                 else:
                     if steps != 0:
                         i['square'] = i['square'] + steps
@@ -41,9 +44,5 @@ def main(board, characters, rollseed, dice): # Initial loop
 
 
 if __name__ == '__main__': # checks if the code is ran as a file
-    import json
     from generateBoard import generate_board
-    for i in range(1000000):
-        if i % 100 == 0:
-            print(i)
-    print(main(generate_board(10000, 0.25, i), list(range(1000)), i*2))
+    print(main(generate_board(20, 0.25, 69), ['a', 'b'], 21, [[1, 1, 4, 4, 8, 8], [1, 1, 2, 2, 3, 3], [3, 3, 5, 5, 9, 9]]))
