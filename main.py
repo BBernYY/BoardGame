@@ -7,7 +7,7 @@ def create_characters(users):
             'freeze': 0
         })
     return result
-def main(board, characters, rollseed, rollsize=6): # Initial loop
+def main(board, characters, rollseed, dice): # Initial loop
     from random import random, seed
     characters = create_characters(characters)
     is_looping = True
@@ -43,7 +43,7 @@ def main(board, characters, rollseed, rollsize=6): # Initial loop
 if __name__ == '__main__': # checks if the code is ran as a file
     import json
     from generateBoard import generate_board
-    for i in range(100000):
+    for i in range(1000000):
         if i % 100 == 0:
             print(i)
-        main(generate_board(100, 0.25, i), ['barry', 'harry'], i*2)
+    print(main(generate_board(10000, 0.25, i), list(range(1000)), i*2))
